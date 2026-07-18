@@ -54,9 +54,12 @@ app.add_middleware(
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
 
 # API Keys and Configuration
-GOOGLE_API_KEY = "AIzaSyAMBQJqXVyagFux2lJLHYycU48an_VhQBg"
-EMERGENT_LLM_KEY = "sk-emergent-8Fd925cC7644a35Cd5"
-SECRET_KEY = "your-secret-key-for-jwt-tokens"
+##GOOGLE_API_KEY = "AIzaSyAMBQJqXVyagFux2lJLHYycU48an_VhQBg"
+##EMERGENT_LLM_KEY = "sk-emergent-8Fd925cC7644a35Cd5"
+##SECRET_KEY = "your-secret-key-for-jwt-tokens"
+GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY', '')
+EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY', '')
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # Initialize Composio client
 # composio_client = Composio(provider=OpenAIProvider(), api_key=EMERGENT_LLM_KEY)
